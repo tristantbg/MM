@@ -1,3 +1,10 @@
+</div>
+</div> <!-- Container -->
+
+<footer>
+	<div class="copyright"><?php echo $site->copyright()->kt() ?></div>
+</footer>
+
 <?php if(!$site->googleanalytics()->empty()): ?>
   <!-- Google Analytics-->
   <script>

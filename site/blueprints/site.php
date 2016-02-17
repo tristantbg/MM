@@ -11,6 +11,9 @@ fields:
   description:
     label: Description
     type:  textarea
+  copyright:
+  	label: Copyright
+  	type: textarea
   keywords:
     label: Keywords
     type:  tags

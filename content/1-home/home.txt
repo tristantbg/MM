@@ -3,3 +3,17 @@ Title: Home
 ----
 
 Text: 
+
+----
+
+Featuredimages: 
+
+- 
+  imagefile: codemm_website2.jpg
+  _fieldset: image
+- 
+  imagefile: codemm_website.jpg
+  _fieldset: image
+- 
+  imagefile: placehold.jpg
+  _fieldset: image

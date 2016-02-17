@@ -1,1 +1,21 @@
-Title: Site Title
+Title: Code MM
+
+----
+
+Description: 
+
+----
+
+Copyright: © (date: year) All Rights Reserved Code MM
+
+----
+
+Keywords: 
+
+----
+
+Customcss: 
+
+----
+
+Googleanalytics: 

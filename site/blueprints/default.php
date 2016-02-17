@@ -2,6 +2,7 @@
 
 title: Page
 pages: true
+  template: page
 files: true
 fields:
   title:

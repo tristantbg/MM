@@ -22,6 +22,41 @@ function init() {
         $(".loader").fadeOut("fast");
     });
     $(window).resize(function(event) {});
-    $(document).ready(function($) {});
+    $(document).ready(function($) {
+        $(".homeslider.royalSlider").royalSlider({
+            //autoScaleSlider: true,
+            imageScalePadding: 60,
+            transitionSpeed: 1000,
+            controlNavigation: 'none',
+            arrowsNav: false,
+            usePreloader: false,
+            loop: true,
+            controlsInside: false,
+            navigateByClick: false,
+            sliderDrag: false,
+            sliderTouch: false,
+            autoPlay: {
+                enabled: true,
+                pauseOnHover: false,
+                delay: 5000,
+            }
+        });
+        $(".projectslider.royalSlider").royalSlider({
+            //autoScaleSlider: true,
+            imageScalePadding: 60,
+            transitionSpeed: 500,
+            controlNavigation: 'thumbnails',
+            usePreloader: false,
+            loop: true,
+            thumbs: {
+                spacing: 10,
+                arrowsAutoHide: true
+            },
+            fullscreen: {
+                enabled: true,
+                nativeFS: false
+            }
+        });
+    });
 }
 init();

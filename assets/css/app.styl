@@ -3,15 +3,253 @@
 @import '_mixins.styl'
 @import 'normalize.css'
 @import '../oembed/oembed.css'
+@import '../lib/jquery.royalslider/royalslider.css'
+@import '../lib/jquery.royalslider/rs-default.css'
 
-scale = 0 400px 600px 800px 1050px
+$desktop = 1100px
+$padding = 40px
+
+$primary ?= white
+$secondary ?= black
+$regular = "NH", "Helvetica", sans-serif
+$bold = "NHB", "Helvetica", sans-serif
 
 // CSS Reset
 global-reset()
+//edit()
 
-webfont('Franklin Gothic', 'franklingothic', true, 'bold')
+webfont('NH', 'NH', true, 'normal')
+webfont('NHB', 'NHB', true, 'bold')
 
-h1
-	font-size 3em
-	+below(3)
-		color blue
+html
+	font-size 62.5%
+	
+body
+	font-family $bold
+	text-rendering optimizeLegibility
+	font-smoothing()
+	font-size 2rem
+	line-height 1em
+
+::selection
+	background $secondary
+	
+::-moz-selection
+	background $secondary
+
+a, a:hover, a:visited, a:focus
+	color inherit
+	text-decoration none
+	position relative
+	cursor pointer
+
+header
+	text-align center
+	position fixed
+	width 60%
+	left 20%
+	top 50%
+	margin-top -20px
+	z-index 1000
+	transition(all, 600ms)
+	ul
+		transition(all, 600ms)
+
+nav.primary
+	vendor(display,flex)
+	top 50%
+	justify-content space-between
+	position relative
+	#m-production, #m-creative
+		transition(font-size, 600ms)
+		font-size 3rem
+	#logo
+		align()
+
+ul.secondary
+	position fixed
+	top calc(100% - 30px)
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	left: 50%;
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	display inline-flex
+	font-size 1.3rem
+	li
+		position relative
+		margin 0 5px
+	li.active::before
+		font-family 'Helvetica', 'Arial', sans-serif
+		content "\00b7"
+		position absolute
+		left -10px
+		font-size 40px
+
+.credits
+	position fixed
+	bottom 10px
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	left: 50%;
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	line-height 0
+	ul
+		display inline-flex
+		font-size 1.3rem
+	li
+		transition()
+		opacity 0
+		position relative
+		margin 0 5px
+		cursor pointer
+	li:first-child
+		transform(translateX(100%))
+	li:last-child
+		transform(translateX(-100%))
+	li.active::before
+		font-family 'Helvetica', 'Arial', sans-serif
+		content "\00b7"
+		position absolute
+		left -10px
+		font-size 40px
+	span
+		transition()
+		opacity 1
+		text-align center
+	span::before
+		font-family 'Helvetica', 'Arial', sans-serif
+		content "\00b7"
+		position absolute
+		font-size 70px
+		left 50%
+		margin-left -15px
+
+.credits:hover
+	li
+		transform(translateX(0))
+		opacity 1
+	span
+		opacity 0
+
+header.reduced
+	top $padding
+	nav.primary
+		top 0
+		#m-production, #m-creative
+			font-size 2rem
+	ul.secondary
+		bottom initial
+		top 60px
+
+footer
+	transform(rotate(-90deg))
+	vendor(transform-origin, 100% 100%)
+	position fixed
+	bottom 100%
+	right 5px
+	width 100vh
+	font-size 1rem
+	text-align center
+ 
+.wrap
+	padding $padding 0
+	width 40%
+	margin-right auto
+	margin-left auto
+
+.lazyload, .lazyloading
+	opacity 0
+
+.lazyloaded
+	opacity 1
+	transition(opacity)
+	
+
+////////////////////////////////////////// HOME
+
+.homeslider
+	width 100%
+	height 100%
+	position absolute
+	top 0
+	background none
+	z-index 0
+	img
+		vendor(filter,grayscale(1))
+
+
+////////////////////////////////////////// CATEGORY
+
+.category
+	.project
+		height 92vh
+		position relative
+		.inner
+			position absolute
+			width 100%
+			top 50%
+			transform(perspective(1px) translateY(-50%))
+			cursor pointer
+			img
+				transition()
+				width 100%
+				vendor(filter,grayscale(1))
+				vendor(backface-visibility, hidden)
+			.infos
+				transition()
+				width 100%
+				height 100%
+				position absolute
+				top 0
+				left 0
+				opacity 0
+				background-color rgba(255,255,255,0.2)
+				.overlay_absolute
+					position absolute
+					width 100%
+					height 100%
+					z-index 20000
+				.overlay_table
+					display table
+					width 100%
+					height 100%
+				.overlay_cell
+					display table-cell
+					vertical-align middle
+					text-align center
+					position relative
+				p
+					font-size 1.5rem
+				p:last-child
+					margin-top 1em
+
+		.inner:hover
+			img
+				vendor(filter,grayscale(0))
+			.infos
+				opacity 1
+
+////////////////////////////////////////// PROJECT
+
+.projectslider
+	width 100%
+	height 97%
+	position absolute
+	top 0
+	background none
+	z-index 0
+
