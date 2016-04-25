@@ -15,7 +15,7 @@ fields:
   date:
     label: Year
     type:  date
-    format: YYYY
+    format: DD/MM/YYYY
     width: 1/3
   director:
     label: Director

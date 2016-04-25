@@ -1,21 +1,23 @@
 <?php
-$projects = $page->children()->visible();
+$projects = $page->children()->visible()->flip();
 ?>
 
 <?php snippet('header') ?>
 
-<header class="reduced">
+<header class="desktop reduced">
 
 	<?php snippet('menu') ?>
 
-	<div class="category wrap">
+	<div id="container">
+
+	<div class="category wrap list">
 
 		<?php foreach($projects as $project): ?>
 
 			<div class="project">
-				<div class="inner">
+				<div class="inner" data-target="<?php echo $project->url() ?>">
 
-					<?php if($project->featuredimage()):
+					<?php if(!$project->featuredimage()->empty()):
 
 					$image = $project->featuredimage()->toFile();
 					$srcset = '';
@@ -60,5 +62,8 @@ $projects = $page->children()->visible();
 
 
 	<?php endforeach ?>
+
+	<div class="index-btn open">see all</div>
+	<div class="index-btn close">go back</div>
 
 	<?php snippet('footer') ?>

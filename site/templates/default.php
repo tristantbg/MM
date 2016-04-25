@@ -1,13 +1,13 @@
 <?php snippet('header') ?>
 
-<header class="reduced">
+<header class="desktop reduced">
 
 <?php snippet('menu') ?>
 
-<div class="wrap">
+<div id="container">
 
-<h1><?php echo $page->title()->html() ?></h1>
+<div class="wrap" id="page">
 
-<p><?php echo $page->text()->kirbytext() ?></p>
+<div class="inner"><?php echo $page->text()->kirbytext() ?></div>
 
 <?php snippet('footer') ?>

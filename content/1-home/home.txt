@@ -9,11 +9,14 @@ Text:
 Featuredimages: 
 
 - 
-  imagefile: codemm_website2.jpg
+  imagefile: hbj_2015_04_ed_ph_001.jpg
   _fieldset: image
 - 
-  imagefile: codemm_website.jpg
+  imagefile: hbj_2014_10_ed_ph_007.jpg
   _fieldset: image
 - 
-  imagefile: placehold.jpg
+  imagefile: hbj_2015_03_ed_ph_005.jpg
+  _fieldset: image
+- 
+  imagefile: hbj_2016_04_ed_ph_011.jpg
   _fieldset: image

@@ -2,7 +2,7 @@
 
 title: Infos
 files: false
-pages:
+pages: true
   template: page
 deletable: false
 preview: false
