@@ -70,6 +70,11 @@ function init() {
             }
         });
         pslide = $(".projectslider.royalSlider").data('royalSlider');
+        if (pslide) {
+            pslide.ev.on('rsAfterContentSet', function() {
+                pslide.updateThumbsSize();
+            });
+        }
         $('.rsNav').before($('.fullscreen.open'));
         $(".loader").fadeOut("fast");
         $("#container").css('opacity', '1');
