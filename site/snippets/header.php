@@ -10,7 +10,7 @@
 	<?php if($page->isHomepage()): ?>
       <title><?php echo $site->title()->html() ?></title>
     <?php else: ?>
-      <title><?php echo $site->title()->html() ?> | <?php echo $page->title()->html() ?></title>
+      <title><?php echo $site->title()->html() ?> | <?php echo $page->title()->html(); if (!$page->subtitle()->empty()) { echo ', '.$page->subtitle()->html(); } ?></title>
     <?php endif ?>
 	<meta name="description" content="<?php echo $site->description()->html() ?>">
 	<meta name="robots" content="index,follow" />
@@ -20,7 +20,7 @@
     <?php if($page->isHomepage()): ?>
       <meta property="og:title" content="<?php echo $site->title()->html() ?>" />
     <?php else: ?>
-      <meta property="og:title" content="<?php echo $site->title()->html() ?> | <?php echo $page->title()->html() ?>" />
+      <meta property="og:title" content="<?php echo $site->title()->html() ?> | <?php echo $page->title()->html(); if (!$page->subtitle()->empty()) { echo ', '.$page->subtitle()->html(); } ?>" />
     <?php endif ?>
     <meta property="og:type" content="website" />
     <meta property="og:url" content="<?php echo html($page->url()) ?>" />
@@ -29,7 +29,7 @@
     <?php foreach($page->featuredimages()->toStructure()->flip() as $index => $media): ?>
     <?php if($media->_fieldset() == 'image'):?>
 		<?php if($media->imagefile()->toFile() !== null):?>
-			<?php $image = $media->imagefile()->toFile()->url(); ?>
+			<?php $image = $media->imagefile()->toFile()->resize(1200)->url(); ?>
 			<meta property="og:image" content="<?php echo $image ?>" />
 		<?php endif ?>
 	<?php endif ?>
@@ -47,12 +47,12 @@
 		<?php endif ?>
 		<?php endforeach ?>
 	<?php elseif($page->content()->name() == "category"): ?>
-		<meta property="og:image" content="<?php echo $page->children()->visible()->flip()->first()->featuredimage()->toFile()->url() ?>" />
+		<meta property="og:image" content="<?php echo $page->children()->visible()->flip()->first()->featuredimage()->toFile()->resize(1200)->url() ?>" />
     <?php endif ?>
 
     <meta property="og:description" content="<?php echo $site->description()->html() ?>" />
-    <meta itemprop="name" content="<?php echo $site->title()->html() ?> | <?php echo $page->title()->html() ?>">
-    <meta itemprop="description" content="<?php echo $site->text()->html() ?>">
+    <meta itemprop="name" content="<?php echo $site->title()->html() ?> | <?php echo $page->title()->html(); if (!$page->subtitle()->empty()) { echo ', '.$page->subtitle()->html(); } ?>">
+    <meta itemprop="description" content="<?php echo $site->description()->html() ?>">
 	<link rel="shortcut icon" href="<?= url('assets/images/favicon.ico') ?>">
 	<link rel="icon" href="<?= url('assets/images/favicon.ico') ?>" type="image/x-icon">
 
