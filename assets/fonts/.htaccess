@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteCond %{HTTP:Origin} !^$|http(s)?://(www\.)?western-promises\.com$ [NC]
+RewriteRule \.(woff|eot|svg|ttf|woff2)$ - [NC,L]
+RewriteCond %{HTTP_REFERER} !.
+RewriteRule \.(woff|eot|svg|ttf|woff2)$ - [F,NC,L]
+Options -Indexes
