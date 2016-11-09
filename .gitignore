@@ -2,6 +2,7 @@
 Thumbs.db
 /content
 /assets/lib
+/assets/fonts/*
 /node_modules
 /npm-debug.log
 /site/accounts
